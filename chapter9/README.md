@@ -1,7 +1,7 @@
 # Tabela Regex
-```
+
 Expressões regulares são objetos que representam padrões em strings. Eles usam sua própria linguagem para expressar esses padrões.
-```
+
 
 | Padrão      | Descrição                                                      |
 |-------------|----------------------------------------------------------------|
