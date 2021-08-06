@@ -1,7 +1,8 @@
 # Tabela Regex
 
+| Padrão      | Descrição                                                      |
+|-------------|----------------------------------------------------------------|
 |   `/abc/`   | Uma sequência de caracteres.                                   |
-|:-----------:|----------------------------------------------------------------|
 |  `/[abc]/`  | Qualquer caractere de um conjunto de caracteres.               |
 |  `/[^abc]/` | Qualquer caractere que não esteja nesse conjunto de caracteres |
 |  `/[0-9]/`  | Qualquer caractere nesse ranger.                               |
