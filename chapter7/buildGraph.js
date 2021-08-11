@@ -6,7 +6,6 @@ const mailRoute = [
     "Grete's House", "Shop", "Grete's House", "Farm",
     "Marketplace", "Post Office"
 ];
-// TODO: Debugar e entender esse código
 /**
  * Inicializa o grafo   
  */
