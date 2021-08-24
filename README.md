@@ -1,2 +1,1 @@
-# Books
-Os livros estão organizados por branch.
+# EntendendoAlgoritmos (Aditya Y. Bhargava)
