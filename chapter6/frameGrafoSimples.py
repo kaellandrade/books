@@ -40,7 +40,7 @@ class Grafo:
         '''
         return 'p' in pessoa.lower()
 
-    def pesquisaLargura(self, start):
+    def pesquisaLargura(self, start): #O(V+A)
         '''
             Realiza uma pesquisa em largura.
         '''
@@ -90,4 +90,4 @@ grafo.addAresta('clarie', 'thom')
 grafo.addAresta('clarie', 'jonny')
 
 
-print(grafo.pesquisaLargura('eu'))
+grafo.pesquisaLargura('eu')
