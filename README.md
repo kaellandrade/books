@@ -1,2 +1,3 @@
-# Books
-Os livros estão organizados por branch.
+# Problemas Clássicos de Ciência da COmputação com Python
+
+- Autor - David Kopec
