@@ -19,20 +19,20 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
       <figure>
         <img src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
         <figcaption>
-            - [ ]AAA 
+            <ul>
+            <li><a href="https://github.com/kaellandrade/guideToCreatingDynamicWebsites">:octocat: Repositório</a></li>
+            </ul>
         </figcaption>
       </figure>
-    </td>
+    </td>    
     <td style="border: none">
       <figure>
-        <img src="./prints/mobile/2_tela_criar_bolao.jpg" />
-        <figcaption>Criar bolão</figcaption>
-      </figure>
-    </td>
-    <td style="border: none">
-      <figure>
-        <img src="./prints/mobile/3_jogos.jpg" />
-        <figcaption>Tela dos jogos</figcaption>
+        <img src="https://m.media-amazon.com/images/P/1593279507.01._SCLZZZZZZZ_SX500_.jpg" />
+        <figcaption>
+            <ul>
+            <li><a href="https://github.com/kaellandrade/books/tree/eloquentjavascript">:octocat: Repositório</a></li>
+            </ul>
+        </figcaption>
       </figure>
     </td>
   </tr>
