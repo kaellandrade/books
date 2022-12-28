@@ -9,7 +9,7 @@
 </div>
 
 ## Sobre
-Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organizados por pastas.
+Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organizados por branch.
 
 
 ## Sumário
