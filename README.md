@@ -2,9 +2,7 @@
 <h1>Livros</h1>
 
 [**Sobre**](#Sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Progresso**](#progresso) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Telas**](#-resultado-telas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Layout**](#-layout) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Livros**](#Livros) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Licença**](#-license)
 </div>
 
@@ -12,7 +10,7 @@
 Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organizados por branch.
 
 
-## Sumário
+## Livros
 <table>
   <tr style="border: none">
     <td style="border: none">
@@ -61,7 +59,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
                 <hr>
                 <figcaption>
                     <ul>
-                    <li><a href="#">:octocat: Branch</a></li>
+                    <li><a href="https://github.com/kaellandrade/books/tree/MergulhoNospadroesDeProjeto">:octocat: Branch</a></li>
                     <li><a href="https://refactoring.guru/pt-br">:coin: Comprar</a></li>
                     </ul>
                 </figcaption>
