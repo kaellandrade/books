@@ -7,7 +7,7 @@
 </div>
 
 ## Sobre
-Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organizados por branch.
+Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livros são organizados por branch.
 
 
 ## Livros
