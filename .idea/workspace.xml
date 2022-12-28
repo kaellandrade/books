@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2661791c-9c19-44ae-bf01-5c513e00106e" name="Changes" comment="Cadastrando livros">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter3/examp10.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter3/examp11.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter3/examp12.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter3/examp17.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter5/Subscriber.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter5/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter5/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter5/perssons.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter6/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/lendoArquivo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/printf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/sprintf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/uploadFile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chapter7/usepowerSystem.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ProblemaClassicoCienciaDaComputacaoComPython" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JXxgvbo36yedDUR4a81FooQTx7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/moobi/www",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2661791c-9c19-44ae-bf01-5c513e00106e" name="Changes" comment="" />
+      <created>1672238343540</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672238343540</updated>
+      <workItem from="1672238345966" duration="4076000" />
+    </task>
+    <task id="LOCAL-00001" summary="Cadastrando livros">
+      <created>1672240049329</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240049329</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cadastrando livros">
+      <created>1672240084381</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240084381</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cadastrando livros">
+      <created>1672240153423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240153423</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cadastrando livros">
+      <created>1672240470489</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240470489</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cadastrando livros">
+      <created>1672240708965</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240708965</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cadastrando livros">
+      <created>1672241059523</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241059523</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Cadastrando livros">
+      <created>1672241229173</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241229173</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cadastrando livros">
+      <created>1672241415539</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241415539</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Cadastrando livros">
+      <created>1672241716396</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241716396</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Cadastrando livros">
+      <created>1672241803876</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241803876</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Cadastrando livros">
+      <created>1672241819114</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241819114</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Cadastrando livros">
+      <created>1672241995353</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672241995353</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Cadastrando livros">
+      <created>1672242075318</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672242075318</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cadastrando livros" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cadastrando livros" />
+  </component>
+</project>

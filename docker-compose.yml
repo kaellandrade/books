@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    php-http:
+        image: php08-web-app
+        container_name: 'php08-webserver'
+        build: ./php/
+        ports:
+            - "90:80"
+        volumes:
+            - "./:/var/www/html"
+        links:
+            -   mysql
+
+    mysql:
+        hostname: "mysql80"
+        container_name: 'web-app'
+        image: mysql:8.0
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./mysql:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123
+            MYSQL_DATABASE: test
+            MYSQL_USER: kaell
+            MYSQL_PASSWORD: 123
+            TZ: "America/Bahia"

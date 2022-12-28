@@ -1,3 +1,3 @@
-# Problemas Clássicos de Ciência da COmputação com Python
+# Learning PHP, MySQL & JavaScript (with PHP 8, MySQL 8, PDO, and React) 6th Edition
 
-- Autor - David Kopec
+- [Learning Php, MySQL & JavaScript](https://www.amazon.com.br/Learning-MySQL-JavaScript-Step-Step/dp/1492093823/ref=sr_1_fkmr0_1?keywords=Learning+PHP%2C+MySQL+%26+JavaScript+%28with+PHP+8%2C+MySQL+8%2C+PDO%2C+and+React%29+6th+Edition&qid=1670694043&sr=8-1-fkmr0&ufe=app_do%3Aamzn1.fos.fcd6d665-32ba-4479-9f21-b774e276a678)
