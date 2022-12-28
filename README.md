@@ -15,7 +15,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
 ## Sumário
 <table>
   <tr style="border: none">
-    <td style="border: 1px solid whitesmoke; border-radius: 5px">
+    <td style="border: none">
       <figure>
         <img src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
         <figcaption>Buscar bolão</figcaption>
