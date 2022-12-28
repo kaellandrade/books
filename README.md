@@ -19,7 +19,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
         <hr>
         <figcaption>
             <ul>
-            <li><a href="https://github.com/kaellandrade/guideToCreatingDynamicWebsites">:octocat: Branch</a></li>
+            <li><a href="https://github.com/kaellandrade/books/tree/guideToCreatingDynamicWebsites">:octocat: Branch</a></li>
             <li><a href="https://www.amazon.com/-/pt/dp/1492093823/ref=sr_1_1?crid=X10C3IUA9ZBS&keywords=robin+nixon&qid=1672240926&sprefix=robin+nixon%2Caps%2C202&sr=8-1">:coin: Comprar</a></li>
             </ul>
         </figcaption>
