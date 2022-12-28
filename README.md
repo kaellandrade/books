@@ -54,6 +54,20 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
           </figure>
     </td>
   </tr>
+    <tr style="border: none">
+     <td style="border: none">
+              <figure>
+                <img src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
+                <hr>
+                <figcaption>
+                    <ul>
+                    <li><a href="#">:octocat: Branch</a></li>
+                    <li><a href="https://refactoring.guru/pt-br">:coin: Comprar</a></li>
+                    </ul>
+                </figcaption>
+              </figure>
+        </td>
+    </tr>
 </table>
 
 
