@@ -18,6 +18,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
     <td style="border: none">
       <figure>
         <img src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
+        <hr>
         <figcaption>
             <ul>
             <li><a href="https://github.com/kaellandrade/guideToCreatingDynamicWebsites">:octocat: Branch</a></li>
@@ -29,6 +30,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
     <td style="border: none">
           <figure>
             <img src="https://m.media-amazon.com/images/P/1593279507.01._SCLZZZZZZZ_SX500_.jpg" />
+            <hr>
             <figcaption>
                 <ul>
                 <li><a href="https://github.com/kaellandrade/books/tree/eloquentjavascript">:octocat: Branch</a></li>
@@ -41,6 +43,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
     <td style="border: none">
           <figure>
             <img src="https://m.media-amazon.com/images/P/B07B61HC3L.01._SCLZZZZZZZ_SX500_.jpg" />
+            <hr>
             <figcaption>
                 <ul>
                 <li><a href="https://github.com/kaellandrade/books/tree/entendendo_algoritmos">:octocat: Branch</a></li>
@@ -55,6 +58,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
      <td style="border: none">
               <figure>
                 <img src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
+                <hr>
                 <figcaption>
                     <ul>
                     <li><a href="#">:octocat: Branch</a></li>
@@ -72,6 +76,7 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
   <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
 </p>
 <hr>
+
 ## 📝 License
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
