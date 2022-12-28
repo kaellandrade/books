@@ -18,7 +18,9 @@ Aqui estão os exemplos dos códigos dos livros que leio. Os livros são organiz
     <td style="border: none">
       <figure>
         <img src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
-        <figcaption>Buscar bolão</figcaption>
+        <figcaption>
+            - [ ]AAA 
+        </figcaption>
       </figure>
     </td>
     <td style="border: none">
