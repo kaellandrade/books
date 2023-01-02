@@ -1,7 +1,7 @@
 # Padrões em exemplos em PHP
 
 ## [Criacionais](PadroesCriacionais)
-- Factory method
+- [Factory method](PadroesCriacionais/factory-method)
 
     <aside>
     💡 Fornece uma interface para criar objetos em uma superclasse, mas permite que as subclasses alterem o tipo de objetos que serão criados.
