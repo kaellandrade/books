@@ -6,8 +6,8 @@ class Cliente {
 	private TransporteAbstrato $oProduto ;
 	public function __construct(TransporteAbstrato $oProduto) {
 		$this->oProduto = $oProduto;
-		$this->oProduto->realizarOperacao();
+		$this->oProduto->entregarEncomenda();
 	}
 }
-new Cliente(new CriadorTransporteNavio('A'));
-new Cliente(new CriadorTransporteCaminhao('B'));
+new Cliente(new CriadorTransporteNavio('158AA'));
+new Cliente(new CriadorTransporteCaminhao('158BB'));
