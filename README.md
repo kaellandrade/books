@@ -12,12 +12,11 @@
 Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livros são organizados por branch.
 
 ## Livros
-
 <table>
   <tr style="border: none">
     <td style="border: none">
       <figure>
-        <img src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
+        <img width="150px" src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
         <hr>
         <figcaption>
             <ul>
@@ -30,7 +29,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
     </td>    
     <td style="border: none">
           <figure>
-            <img src="https://m.media-amazon.com/images/P/1593279507.01._SCLZZZZZZZ_SX500_.jpg" />
+            <img width="150px" src="https://m.media-amazon.com/images/P/1593279507.01._SCLZZZZZZZ_SX500_.jpg" />
             <hr>
             <figcaption>
                 <ul>
@@ -43,7 +42,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
     </td>
     <td style="border: none">
           <figure>
-            <img src="https://m.media-amazon.com/images/P/B07B61HC3L.01._SCLZZZZZZZ_SX500_.jpg" />
+            <img width="150px" src="https://m.media-amazon.com/images/P/B07B61HC3L.01._SCLZZZZZZZ_SX500_.jpg" />
             <hr>
             <figcaption>
                 <ul>
@@ -58,7 +57,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
   <tr style="border: none">
     <td style="border: none">
               <figure>
-                <img src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
+                <img width="150px" src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
                 <hr>
                 <figcaption>
                     <ul>
@@ -70,7 +69,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
       </td>
       <td style="border: none">
               <figure>
-                <img src="https://m.media-amazon.com/images/I/914Lo09RDcL._SL1500_.jpg" />
+                <img width="150px" src="https://m.media-amazon.com/images/I/914Lo09RDcL._SL1500_.jpg" />
                 <hr>
                 <figcaption>
                     <ul>
@@ -84,7 +83,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
 </table>
 
 <p align="center">
-  <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
+  <a href="LICENSE"><img width="150px"  src="https://img width="150px".shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
 </p>
 <hr>
 
