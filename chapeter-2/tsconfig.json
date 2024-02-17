@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["es2015"], // Quais APIs o TSC deve presumir que existem no ambiente em que você executará seu código?
+    "module": "commonjs",
+    "outDir": "dist",
+    "sourceMap": true,
+    "strict": true, // Seja o mais rigoroso possível ao verificar códigos inválidos.
+    "target": "ES2015",
+    "noImplicitAny": false
+  },
+  "include": [
+    "src"
+  ]
+}

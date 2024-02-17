@@ -1,94 +1,73 @@
-<div align="center">
-<h1>Livros</h1>
+## Programming TypeScript
 
-[**Sobre**](#Sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Livros**](#Livros) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Licença**](#-license)
+<details>
+  <summary>TypeScript: A 10_000 Foot View (Chap 02)</summary>
 
-</div>
+## O compilador
 
-## Sobre
+1. Programa analisado em AST(n abstract syntax tree);
+2. AST é compilado para um bytecode;
+3. Bytecode é avaliado em tempo de execução.
 
-Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livros são organizados por branch.
+> O TypeScript em vez de compilar diretamente para bytecode, o Type-Script compila para… código JavaScript! (Transpile)
 
-## Livros
-<table>
-  <tr style="border: none">
-    <td style="border: none">
-      <figure>
-        <img width="150px" src="https://m.media-amazon.com/images/P/1492093823.01._SCLZZZZZZZ_SX500_.jpg" />
-        <hr>
-        <figcaption>
-            <ul>
-            <li><a href="https://github.com/kaellandrade/books/tree/guideToCreatingDynamicWebsites">:octocat: Branch</a></li>
-            <li><a href="https://www.amazon.com/-/pt/dp/1492093823/ref=sr_1_1?crid=X10C3IUA9ZBS&keywords=robin+nixon&qid=1672240926&sprefix=robin+nixon%2Caps%2C202&sr=8-1">:coin: Comprar</a></li>
-             <li>:heavy_check_mark: Lido</li>
-            </ul>
-        </figcaption>
-      </figure>
-    </td>    
-    <td style="border: none">
-          <figure>
-            <img width="150px" src="https://m.media-amazon.com/images/P/1593279507.01._SCLZZZZZZZ_SX500_.jpg" />
-            <hr>
-            <figcaption>
-                <ul>
-                <li><a href="https://github.com/kaellandrade/books/tree/eloquentjavascript">:octocat: Branch</a></li>
-                <li><a href="https://eloquentjavascript.net/">:link: Site oficial</a></li>
-                <li><a href="https://www.amazon.com.br/Eloquent-JavaScript-3rd-Introduction-Programming/dp/1593279507">:coin: Comprar</a></li>
-                </ul>
-            </figcaption>
-          </figure>
-    </td>
-    <td style="border: none">
-          <figure>
-            <img width="150px" src="https://m.media-amazon.com/images/P/B07B61HC3L.01._SCLZZZZZZZ_SX500_.jpg" />
-            <hr>
-            <figcaption>
-                <ul>
-                <li><a href="https://github.com/kaellandrade/books/tree/entendendo_algoritmos">:octocat: Branch</a></li>
-                <li><a href="https://www.amazon.com.br/Entendendo-Algoritmos-Ilustrado-Programadores-Curiosos/dp/8575225634/ref=sr_1_fkmr0_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=CGVU8LC4FXJ2&keywords=EntendendoAlgoritmos+%28Aditya+Y.+Bhargava%29&qid=1672240964&s=books&sprefix=entendendoalgoritmos+aditya+y.+bhargava+%2Cstripbooks%2C194&sr=1-1-fkmr0">:coin: Comprar</a></li>
-                <li>:heavy_check_mark: Lido</li>
-                </ul>
-            </figcaption>
-          </figure>
-    </td>
-  </tr>
-  <tr style="border: none">
-    <td style="border: none">
-              <figure>
-                <img width="150px" src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
-                <hr>
-                <figcaption>
-                    <ul>
-                    <li><a href="https://github.com/kaellandrade/books/tree/MergulhoNospadroesDeProjeto">:octocat: Branch</a></li>
-                    <li><a href="https://refactoring.guru/pt-br">:coin: Comprar</a></li>
-                    </ul>
-                </figcaption>
-              </figure>
-      </td>
-      <td style="border: none">
-              <figure>
-                <img width="150px" src="https://m.media-amazon.com/images/I/914Lo09RDcL._SL1500_.jpg" />
-                <hr>
-                <figcaption>
-                    <ul>
-                    <li><a href="#">:octocat: Branch</a></li>
-                    <li><a href="https://www.amazon.com/Programming-TypeScript-Making-JavaScript-Applications/dp/1492037656">:coin: Comprar</a></li>
-                    </ul>
-                </figcaption>
-              </figure>
-      </td>
-  </tr>
-</table>
-<hr>
+> Mas antes diss, existe progragrama especial que (typechecker) que verifica se seu código é typesafe.
 
-## 📝 License
+1. TypeScript source -> TypeScript AST [TSC]
+    - Aqui é usado os tipos declarados;
+2. AST é verificada por typechecker [TSC]
+    - Aqui é usado os tipos declarados;
+3. TypeScript AST -> JavaScript source [TSC]
+    - Aqui não é mais utilizado os tipos.
+   ```
+   Quando o TSC compila seu código de TypeScript para JS, ele não olha mais para os seus tipos.  
+   ```
+4. JavaScript source -> JavaScript AST [JS]
+5. AST -> bytecode [JS]
+6. ByteCode é avaliado em tempo de execução[JS]
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+JavaScript engine (V8, Spidermonkey[Firefox], JSCore[Safari], Chakra[Edge])
 
----
+## O sistema de tipos
 
-<p align="center">
-  Never stop learning 🚀
-</p>
+> Um conjunto de regras que um verificador de tipos usa para atribuir tipos ao seu programa.
+
+- Dinâmico
+- Estático (TS is incrementally compiled statically typed language)
+
+> O TypeScript é inspirado em ambos os tipos de sistemas de tipos: você pode anotar explicitamente seus tipos ou pode
+> deixar o TypeScript inferir a maioria deles para você.
+
+> Em geral, é uma boa ideia deixar o TypeScript inferir tantos tipos quanto possível para você, mantendo o código
+> digitado explicitamente no mínimo.
+
+Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma modelo mental de como o TS funciona:
+
+| Recursos do sistemas de tipos             | JS                     | TS                        |
+|-------------------------------------------|------------------------|---------------------------|
+| Como os tipos são vinculados ?            | Dinâmico               | Estático                  |
+| Os tipos são convertidos automaticamente? | Sim                    | Não(principal)            |
+| Quando os tipos são verificados?          | Tempo de execução      | Tempo de compilação       |
+| Quando os erros são encontrados ?         | Em execução(a maioria) | Em compilação (a maioria) |
+
+> Se você precisar converter tipos, faça-o explicitamente.
+
+> O compilador TSC é escrito em TypeScript, ou seja, o TS é uma linguagem
+>
+bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/#:~:text=A%20self-hosting%20compiler%20is%20one%20that%20can%20compile,writing%20%3D%2C%20you%20write%20the%20actual%20word%20EQUALS.)
+
+## [TSLint](https://palantir.github.io/tslint/)
+
+- `npx tslint --init` - Para habilitar o tslint estilização de código
+
+## Dicas
+
+1. Instale o `ts-node` e use-o para compilar e executar seu TypeScript com um único comando.
+2. Use uma ferramenta de scaffolding como `typescript-node-starter` para gerar rapidamente sua estrutura de pastas para
+   você.
+
+</details>
+
+<details>
+  <summary>All About Types (Chap 03)</summary>
+</details>
