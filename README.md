@@ -4,13 +4,15 @@
 [**Sobre**](#Sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Livros**](#Livros) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Licença**](#-license)
+
 </div>
 
 ## Sobre
+
 Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livros são organizados por branch.
 
-
 ## Livros
+
 <table>
   <tr style="border: none">
     <td style="border: none">
@@ -21,6 +23,7 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
             <ul>
             <li><a href="https://github.com/kaellandrade/books/tree/guideToCreatingDynamicWebsites">:octocat: Branch</a></li>
             <li><a href="https://www.amazon.com/-/pt/dp/1492093823/ref=sr_1_1?crid=X10C3IUA9ZBS&keywords=robin+nixon&qid=1672240926&sprefix=robin+nixon%2Caps%2C202&sr=8-1">:coin: Comprar</a></li>
+             <li>:heavy_check_mark: Lido</li>
             </ul>
         </figcaption>
       </figure>
@@ -52,8 +55,8 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
           </figure>
     </td>
   </tr>
-    <tr style="border: none">
-     <td style="border: none">
+  <tr style="border: none">
+    <td style="border: none">
               <figure>
                 <img src="https://refactoring.guru/images/patterns/book/web-cover-pt-br.png" />
                 <hr>
@@ -64,10 +67,21 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
                     </ul>
                 </figcaption>
               </figure>
-        </td>
-    </tr>
+      </td>
+      <td style="border: none">
+              <figure>
+                <img src="https://m.media-amazon.com/images/I/914Lo09RDcL._SL1500_.jpg" />
+                <hr>
+                <figcaption>
+                    <ul>
+                    <li><a href="#">:octocat: Branch</a></li>
+                    <li><a href="https://www.amazon.com/Programming-TypeScript-Making-JavaScript-Applications/dp/1492037656">:coin: Comprar</a></li>
+                    </ul>
+                </figcaption>
+              </figure>
+      </td>
+  </tr>
 </table>
-
 
 <p align="center">
   <a href="LICENSE"><img  src="https://img.shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
