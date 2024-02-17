@@ -12,7 +12,7 @@
 Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livros são organizados por branch.
 
 ## Livros
-<table>
+<table style="text-align: center;">
   <tr style="border: none">
     <td style="border: none">
       <figure>
@@ -83,7 +83,9 @@ Aqui estão os exemplos e exercícios dos códigos dos livros que leio. Os livro
 </table>
 
 <p align="center">
-  <a href="LICENSE"><img width="150px"  src="https://img width="150px".shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
+<p align="center">
+  <a href="LICENSE"><img   src="https://img .shields.io/static/v1?label=License&message=MIT&color=F7DD43&labelColor=202024" alt="License"></a>
+</p>
 </p>
 <hr>
 
