@@ -106,8 +106,8 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   let f: true = false // ERROR, tipo literal apenas com valor true.
   ```
 - `number`
- - Operações básicas aritiméticas, relacionais ...
- - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
+  - Operações básicas aritiméticas, relacionais ...
+  - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
   ````typescript
   let oneMillion = 1_000_000 // Igual à 1000000
   let a:1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
