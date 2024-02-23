@@ -75,5 +75,7 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
   > Quando você vê que algo é do tipo T, você não apenas sabe que é um T, mas também sabe exatamente o que pode fazer com esse T (e o que não pode).
 
+### Hierarquia de tipos
+
   ![alt](chapter-03/typeScript-type-hierarchy.drawio.svg)
 </details>
