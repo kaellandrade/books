@@ -77,5 +77,41 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
 ### Hierarquia de tipos
 
-  ![alt](chapter-03/typeScript-type-hierarchy.drawio.svg)
+  ![alt](app/chapter-03/typeScript-type-hierarchy.drawio.svg)
+
+## ABCs dos tipos
+- `any`
+  - Evite, assim como o fogo! (Utilizar noImplicitAny).
+- `unknown`
+  - Pode ser utilizado para valores desconhecidos, mas procure sempre conhecer seus valores!;
+  - Também pode ser refinado.
+  - Operadores que podem ser usados:
+  
+    > ==, ===, ||, &&, ?, !
+  - Exemplo:   
+    ```typescript
+    let a : unknown = 20; // TypesScript não inferirá nada sobre unknown;
+    let b = a === 1234; // SIM! Podemos comparar os valores do tipo unknown, ou seja, utilizar os operadores relacionais.
+    let c = a + 10; //  NÃO! Pois estamos pressupondo que ele é um número
+    
+    ```
+- `boolean`
+  Exemplo: 
+  ```Typescript
+  let a = true // OK! boolean
+  var b = false // OK! boolean
+  const c = true // OK, PORÉM CONSTANTE. true
+  let d: boolean = true // OK, Qualquer valor do conjunto boolean
+  let e: true = true // type literals feature (um tipo que representa um único valor e nada mais)
+  let f: true = false // ERROR, tipo literal apenas com valor true.
+  ```
+- `number`
+ - Operações básicas aritiméticas, relacionais ...
+ - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
+  ````typescript
+  let oneMillion = 1_000_000 // Igual à 1000000
+  let a:1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
+  let b:100000 = 100_000;
+  console.log(a+b);
+  ```
 </details>
