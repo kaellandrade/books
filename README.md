@@ -113,5 +113,5 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   let a:1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
   let b:100000 = 100_000;
   console.log(a+b);
-```
+  ```
 </details>
