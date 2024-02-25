@@ -14,13 +14,13 @@
 > Mas antes diss, existe progragrama especial que (typechecker) que verifica se seu código é typesafe.
 
 1. TypeScript source -> TypeScript AST [TSC]
-    - Aqui é usado os tipos declarados;
+   - Aqui é usado os tipos declarados;
 2. AST é verificada por typechecker [TSC]
-    - Aqui é usado os tipos declarados;
+   - Aqui é usado os tipos declarados;
 3. TypeScript AST -> JavaScript source [TSC]
-    - Aqui não é mais utilizado os tipos.
+   - Aqui não é mais utilizado os tipos.
    ```
-   Quando o TSC compila seu código de TypeScript para JS, ele não olha mais para os seus tipos.  
+   Quando o TSC compila seu código de TypeScript para JS, ele não olha mais para os seus tipos.
    ```
 4. JavaScript source -> JavaScript AST [JS]
 5. AST -> bytecode [JS]
@@ -44,7 +44,7 @@ JavaScript engine (V8, Spidermonkey[Firefox], JSCore[Safari], Chakra[Edge])
 Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma modelo mental de como o TS funciona:
 
 | Recursos do sistemas de tipos             | JS                     | TS                        |
-|-------------------------------------------|------------------------|---------------------------|
+| ----------------------------------------- | ---------------------- | ------------------------- |
 | Como os tipos são vinculados ?            | Dinâmico               | Estático                  |
 | Os tipos são convertidos automaticamente? | Sim                    | Não(principal)            |
 | Quando os tipos são verificados?          | Tempo de execução      | Tempo de compilação       |
@@ -54,7 +54,7 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
 
 > O compilador TSC é escrito em TypeScript, ou seja, o TS é uma linguagem
 >
-bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/#:~:text=A%20self-hosting%20compiler%20is%20one%20that%20can%20compile,writing%20%3D%2C%20you%20write%20the%20actual%20word%20EQUALS.)
+> bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/#:~:text=A%20self-hosting%20compiler%20is%20one%20that%20can%20compile,writing%20%3D%2C%20you%20write%20the%20actual%20word%20EQUALS.)
 
 ## [TSLint](https://palantir.github.io/tslint/)
 
@@ -73,30 +73,34 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   
   > Um conjunto de valores e o que você pode fazer com eles.
 
-  > Quando você vê que algo é do tipo T, você não apenas sabe que é um T, mas também sabe exatamente o que pode fazer com esse T (e o que não pode).
+> Quando você vê que algo é do tipo T, você não apenas sabe que é um T, mas também sabe exatamente o que pode fazer com esse T (e o que não pode).
 
 ### Hierarquia de tipos
 
-  ![alt](app/chapter-03/typeScript-type-hierarchy.drawio.svg)
+![alt](app/chapter-03/typeScript-type-hierarchy.drawio.svg)
 
 ## ABCs dos tipos
+
 - `any`
   - Evite, assim como o fogo! (Utilizar noImplicitAny).
 - `unknown`
+
   - Pode ser utilizado para valores desconhecidos, mas procure sempre conhecer seus valores!;
   - Também pode ser refinado.
   - Operadores que podem ser usados:
-  
+
     > ==, ===, ||, &&, ?, !
-  - Exemplo:   
+
+  - Exemplo:
+
     ```typescript
-    let a : unknown = 20; // TypesScript não inferirá nada sobre unknown;
+    let a: unknown = 20; // TypesScript não inferirá nada sobre unknown;
     let b = a === 1234; // SIM! Podemos comparar os valores do tipo unknown, ou seja, utilizar os operadores relacionais.
     let c = a + 10; //  NÃO! Pois estamos pressupondo que ele é um número
-    
     ```
+
 - `boolean`
-  Exemplo: 
+  Exemplo:
   ```Typescript
   let a = true // OK! boolean
   var b = false // OK! boolean
@@ -109,9 +113,43 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   - Operações básicas aritiméticas, relacionais ...
   - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
   ```typescript
-  let oneMillion = 1_000_000 // Igual à 1000000
-  let a:1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
-  let b:100000 = 100_000;
-  console.log(a+b);
+  let oneMillion = 1_000_000; // Igual à 1000000
+  let a: 1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
+  let b: 100000 = 100_000;
+  console.log(a + b);
   ```
+- `bigint`
+  - Operações com inteiros
+  ```typescript
+  let a: bigint = 10n;
+  ```
+- `string`
+- `symbol  (ES2015).`
+
+  - Alternativa para chave de strings em objetos e maps
+  - Um Symbol é único
+  - O principal objetivo dos Symbols no TypeScript (e JavaScript) é fornecer uma maneira de criar identificadores únicos
+  - Symbols permitem que você crie propriedades de objeto que são únicas e não podem ser sobrescritas ou acessadas acidentalmente1. Isso é útil quando você está escrevendo uma biblioteca ou um framework e quer evitar conflitos com o código do usuário.
+
+  ```typescript
+  let a = Symbol('a');
+  let b: symbol = Symbol('B');
+  ```
+
+  ```typescript
+  // Exemplo de key usando Symbolo
+  const sym = Symbol('teste');
+  let obj = {
+  	[sym]: 'value',
+  };
+  console.log(obj[sym]); // "value"
+  ```
+
+  ```typescript
+  const e = Symbol('e'); // typeof e
+  const f: unique symbol = Symbol('f'); // typeof f
+  ```
+
+  > Pense em símbolos únicos como outros tipos literais, como 1, verdadeiro ou “literal”. Eles são uma forma de criar um tipo que representa um determinado habitante do símbolo.
+
 </details>
