@@ -11,7 +11,7 @@
 
 > O TypeScript em vez de compilar diretamente para bytecode, o Type-Script compila para… código JavaScript! (Transpile)
 
-> Mas antes diss, existe progragrama especial que (typechecker) que verifica se seu código é typesafe.
+> Mas antes disso, existe progragrama especial que (typechecker) que verifica se seu código é typesafe.
 
 1. TypeScript source -> TypeScript AST [TSC]
    - Aqui é usado os tipos declarados;
@@ -110,11 +110,11 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
   let f: true = false // ERROR, tipo literal apenas com valor true.
   ```
 - `number`
-  - Operações básicas aritiméticas, relacionais ...
+  - Operações básicas aritméticas, relacionais ...
   - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
   ```typescript
   let oneMillion = 1_000_000; // Igual à 1000000
-  let a: 1_000_000_000_000_000 = 1000000000000000; // Muito últil para números grandes
+  let a: 1_000_000_000_000_000 = 1000000000000000; // Muito útil para números grandes
   let b: 100000 = 100_000;
   console.log(a + b);
   ```
@@ -152,4 +152,86 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
 
   > Pense em símbolos únicos como outros tipos literais, como 1, verdadeiro ou “literal”. Eles são uma forma de criar um tipo que representa um determinado habitante do símbolo.
 
-</details>
+- `object`
+
+  - No exemplo abaixo ambos satisfazem o shape(interface)
+
+    ```typescript
+    // Definindo uma interface para objetos
+    interface Aluno {
+    	nome: string;
+    	dataNascimento: string;
+    }
+
+    // Formato de classe
+    class ClasseAluno {
+    	constructor(public nome: string, public dataNascimento: string) {}
+    }
+
+    // Formato objeto literal
+    let alunoA: Aluno = {
+    	dataNascimento: '1996-01-02',
+    	nome: 'José',
+    };
+
+    let alunoB: Aluno = new ClasseAluno('Maria', '1996-04-08');
+    ```
+
+  - Neste exemplo abaixo, podemos definir `n` props de um tipo específico: `[key: T]: U`, index signatures (assinatura de índices)
+
+    ```typescript
+    let a: {
+    	b: number; // Deve conter essa prop number
+    	c?: string; // Opcional (caso não seja definida fica undefined)
+    	[key: number]: boolean; // pode haver n props com keys numbers e valores booleans
+    };
+
+    a = {
+    	b: 1,
+    	c: 'teste',
+    	10: true,
+    	1: true,
+    };
+    ```
+
+  - Operador `readonly`
+
+    ```typescript
+    let a: {
+    	readonly opinicaoDoTeimoso: string;
+    };
+
+    a = {
+    	opinicaoDoTeimoso: 'Prefiro JavaScript puro!',
+    };
+
+    a.opinicaoDoTeimoso = 'Cara, Typescript é TOOOP!'; // Não adianta, ele não vai ouvir (operador readonly)
+    ```
+
+  - Objetos `{}` (vazios) ou , evitar o máximo possível, pois qualquer coisa pode ser atribuídos a eles, exceto: `null`, `undefined`
+
+    ```Typescript
+    let danger: {}; // ou let danger: Object;
+    danger = {};
+    danger = { x: 1 };
+    danger = [];
+    danger = 2;
+    ```
+
+    > `object` é mais restrito e não permite valores primitivos, enquanto `Object` é menos restrito e permite quase todos os tipos de valores1.
+
+    - Este valor é válido para um `object`?
+
+      | Value             | `{}` | `object` | `Object` |
+      | ----------------- | ---- | -------- | -------- |
+      | `{}`              | Sim  | Sim      | Sim      |
+      | `['a']`           | Sim  | Sim      | Sim      |
+      | `function () {}`  | Sim  | Sim      | Sim      |
+      | `new String('a')` | Sim  | Sim      | Sim      |
+      | `'a'`             | Sim  | Não      | Sim      |
+      | `1`               | Sim  | Não      | Sim      |
+      | `Symbol('a') `    | Sim  | Não      | Sim      |
+      | `null `           | Não  | Não      | Não      |
+      | `undefined  `     | Não  | Não      | Não      |
+
+    </details>
