@@ -205,7 +205,7 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
     	opinicaoDoTeimoso: 'Prefiro JavaScript puro!',
     };
 
-    a.opinicaoDoTeimoso = 'Cara, Typescript é TOOOP!'; // Não adianta, ele não vai ouvir (operador readonly)
+    a.opinicaoDoTeimoso = 'Cara, Typescript é TOP!'; // Não adianta, ele não vai ouvir (operador readonly)
     ```
 
   - Objetos `{}` (vazios) ou , evitar o máximo possível, pois qualquer coisa pode ser atribuídos a eles, exceto: `null`, `undefined`
@@ -213,9 +213,9 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
     ```Typescript
     let danger: {}; // ou let danger: Object;
     danger = {};
-    danger = { x: 1 };
+    danger = { x: 1_000 };
     danger = [];
-    danger = 2;
+    danger = 25;
     ```
 
     > `object` é mais restrito e não permite valores primitivos, enquanto `Object` é menos restrito e permite quase todos os tipos de valores1.
@@ -229,9 +229,114 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
       | `function () {}`  | Sim  | Sim      | Sim      |
       | `new String('a')` | Sim  | Sim      | Sim      |
       | `'a'`             | Sim  | Não      | Sim      |
-      | `1`               | Sim  | Não      | Sim      |
+      | `10`              | Sim  | Não      | Sim      |
       | `Symbol('a') `    | Sim  | Não      | Sim      |
       | `null `           | Não  | Não      | Não      |
       | `undefined  `     | Não  | Não      | Não      |
 
-    </details>
+  ## Types Aliases (Apelido), União e Interseções
+
+  > Se você tiver um tipo, você também pode realizar operações sobre ele.
+
+  ### Type aliases
+
+  ```Typescript
+      type Idade = number; // Alias para number
+      type Nome = string; // Alias para string
+
+      let pessoa: {
+      idade: Idade;
+      nome: Nome;
+      };
+
+      pessoa = {
+      idade: 10,
+      nome: 'Micael',
+      };
+
+      pessoa.idade = 27;
+
+  ```
+
+  - Mantém o escopo assim como `let` e `const`;
+
+    ```typescript
+    type Color = 'red';
+    let x = Math.random() < 0.5;
+
+    if (x) {
+    	type Color = 'blue'; // Este aliases sombreia o Color Declarado fora do escopo.
+    	let b: Color = 'blue';
+    } else {
+    	let c: Color = 'red';
+    }
+    ```
+
+    - Aliases de tipo são úteis para `DRYing(Dont't Repeat Yourself)` tipos complexos repetidos
+
+  > Ao decidir se deve ou não usar um alias para um tipo, use o mesmo julgamento usado ao decidir se deve ou não extrair um valor em sua própria variável.
+
+  ### União e Interseção
+
+  - `|` operador de união
+  - `&` operador de intersecção
+
+  ```typescript
+  type Gato = { nome: string; ronona: boolean };
+  type Cao = { nome: string; late: boolean; balancaRabo: boolean };
+  type GatoOuCaoOuAmbos = Gato | Cao;
+  type GatoECao = Gato & Cao;
+
+  // Gato
+  let a: GatoOuCaoOuAmbos = {
+  	nome: 'Chico',
+  	ronona: true,
+  };
+
+  // Cão
+  a = {
+  	nome: 'Frodo',
+  	late: true,
+  	balancaRabo: true,
+  };
+
+  // Cão e gato
+  a = {
+  	nome: 'Donk',
+  	late: true,
+  	ronona: true,
+  	balancaRabo: true,
+  };
+
+  // Cão e Gato (Super-pet)
+  let catDog: GatoECao = {
+  	nome: 'Frodo',
+  	late: true,
+  	ronona: true,
+  	balancaRabo: true,
+  };
+  ```
+
+  - Geralmente uniões **aparecem com mais frequências que interseções**, veja um exemplo de função que tem tal retorno.
+
+  ```typescript
+  // "true" | null
+  function trueOrNull(isTrue: boolean) {
+  	if (isTrue) {
+  		return 'true';
+  	}
+  	return null;
+  }
+  ```
+
+  ```typescript
+  // number | string
+  function trueOrNull(isTrue: boolean) {
+  	if (isTrue) {
+  		return 100;
+  	}
+  	return 'SEM!';
+  }
+  ```
+
+  </details>
