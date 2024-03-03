@@ -339,4 +339,45 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
   }
   ```
 
-  </details>
+- `array`
+
+  ```typescript
+  let numeros = [1, 2, 3]; // number[]
+  var stringsA = ['a', 'b']; // string[]
+  let stringsB: string[] = ['a']; // string[]
+  let stringsAndNumbersUnion = [1, 'a']; // (string | number)[]
+  const stringsAndNumbersConstUnion = [2, 'b']; // (string | number)[]
+
+  let onlySstrings = ['red'];
+  onlySstrings.push('blue');
+  onlySstrings.push(true); // Error TS2345: Argument of type 'true' is not assignable to parameter of type 'string'.
+
+  let arrayAny = []; // any[]
+  arrayAny.push(1); // number[]
+  arrayAny.push('red'); // (string | number)[]
+
+  let onlyNumbers: number[] = []; // number[]
+  onlyNumbers.push(1); // number[]
+  onlyNumbers.push('red'); // Error TS2345: Argument of type '"red"' is not
+  // assignable to parameter of type 'number'.
+  ```
+
+  > À medida que você manipula a matriz e adiciona elementos a ela, o **TypeScript começa a agrupar o tipo da matriz**. Depois que a matriz sair do escopo em que foi definida (por exemplo, se você a declarou em uma função e a retornou), o TypeScript atribuirá a ela um tipo final que não poderá mais ser expandido:
+
+  Veja o seguinte exemplo de uma função que configura um array em seu escopo, e em seguida o retorna:
+
+  ```Typescript
+  function buildArray() {
+    let arr = [];
+
+    arr.push('numero 1');
+    arr.push(1);
+    arr.push(true);
+    return arr; // Return string | number | boolean
+  }
+  let myArray = buildArray() // (string | number)[]
+  myArray.push(10n) // Argument of type '10n' is not assignable to parameter of type 'string | number | boolean'
+
+  ```
+
+</details>
