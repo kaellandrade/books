@@ -339,45 +339,192 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
   }
   ```
 
-- `array`
+  ## Arrays
 
-  ```typescript
-  let numeros = [1, 2, 3]; // number[]
-  var stringsA = ['a', 'b']; // string[]
-  let stringsB: string[] = ['a']; // string[]
-  let stringsAndNumbersUnion = [1, 'a']; // (string | number)[]
-  const stringsAndNumbersConstUnion = [2, 'b']; // (string | number)[]
+  - `array`
 
-  let onlySstrings = ['red'];
-  onlySstrings.push('blue');
-  onlySstrings.push(true); // Error TS2345: Argument of type 'true' is not assignable to parameter of type 'string'.
+    ```typescript
+    let numeros = [1, 2, 3]; // number[]
+    var stringsA = ['a', 'b']; // string[]
+    let stringsB: string[] = ['a']; // string[]
+    let stringsAndNumbersUnion = [1, 'a']; // (string | number)[]
+    const stringsAndNumbersConstUnion = [2, 'b']; // (string | number)[]
 
-  let arrayAny = []; // any[]
-  arrayAny.push(1); // number[]
-  arrayAny.push('red'); // (string | number)[]
+    let onlySstrings = ['red'];
+    onlySstrings.push('blue');
+    onlySstrings.push(true); // Error TS2345: Argument of type 'true' is not assignable to parameter of type 'string'.
 
-  let onlyNumbers: number[] = []; // number[]
-  onlyNumbers.push(1); // number[]
-  onlyNumbers.push('red'); // Error TS2345: Argument of type '"red"' is not
-  // assignable to parameter of type 'number'.
-  ```
+    let arrayAny = []; // any[]
+    arrayAny.push(1); // number[]
+    arrayAny.push('red'); // (string | number)[]
 
-  > À medida que você manipula a matriz e adiciona elementos a ela, o **TypeScript começa a agrupar o tipo da matriz**. Depois que a matriz sair do escopo em que foi definida (por exemplo, se você a declarou em uma função e a retornou), o TypeScript atribuirá a ela um tipo final que não poderá mais ser expandido:
+    let onlyNumbers: number[] = []; // number[]
+    onlyNumbers.push(1); // number[]
+    onlyNumbers.push('red'); // Error TS2345: Argument of type '"red"' is not
+    // assignable to parameter of type 'number'.
+    ```
 
-  Veja o seguinte exemplo de uma função que configura um array em seu escopo, e em seguida o retorna:
+    > À medida que você manipula a matriz e adiciona elementos a ela, o **TypeScript começa a agrupar o tipo da matriz**. Depois que a matriz sair do escopo em que foi definida (por exemplo, se você a declarou em uma função e a retornou), o TypeScript atribuirá a ela um tipo final que não poderá mais ser expandido:
+
+    Veja o seguinte exemplo de uma função que configura um array em seu escopo, e em seguida o retorna:
+
+    ```Typescript
+    function buildArray() {
+      let arr = [];
+
+      arr.push('numero 1');
+      arr.push(1);
+      arr.push(true);
+      return arr; // Return string | number | boolean
+    }
+    let myArray = buildArray() // (string | number)[]
+    myArray.push(10n) // Argument of type '10n' is not assignable to parameter of type 'string | number | boolean'
+
+    ```
+
+  - `tuples`
+
+  > Ao contrário da maioria dos outros tipos, as tuplas precisam ser explicitamente digitadas quando você as declara.
 
   ```Typescript
-  function buildArray() {
-    let arr = [];
+  type TyplePerson = [string, string, number];
+  let a: [number] = [1];
+  // A tuple of [first name, last name, birth year]
+  let b: TyplePerson = ['malcolm', 'gladwell', 1963];
 
-    arr.push('numero 1');
-    arr.push(1);
-    arr.push(true);
-    return arr; // Return string | number | boolean
+  let arrayPerson: TyplePerson[] = [];
+  arrayPerson.push(['micael', 'andrade', 1996]);
+  console.log(arrayPerson.pop()?.[0]); // micael
+  console.log(arrayPerson); // []
+  ```
+
+  - Valores opcionais
+
+    ```typescript
+    // Endereço com número opcional
+    let endereco: [string, number?][] = [
+    	['Av João Bebe Água'],
+    	['Rua mangabeira', 580],
+    ];
+
+    // Equivalente
+    let moreTrainFares: ([string] | [string, number])[] = [
+    	// ...
+    ];
+    ```
+
+  - Tamanhos mínimos
+
+    ```Typescript
+      // Uma lista de elementos com pelo menos um elemento.
+      let meioDePagamento: [string, ...string[]] = [
+      'Débito XXXXXXX',
+      'Crédito YYYYYY',
+      ];
+    // Uma lista heterogênea
+    let list: [number, boolean, ...string[]] = [1, false, 'a', 'b', 'c'];
+    ```
+
+    Diferente de outras linguagens de programação, por exemplo, Python. As tuplas no Typescript são mutáveis, porém podemos torná-las imutáveis tornando ReadOnly:
+
+    ```typescript
+    // Uma lista de elementos com pelo menos um elemento mutável.
+    let friends: [string, ...string[]] = [
+    	'Sara',
+    	'Tali',
+    	'Chloe',
+    	'Claire',
+    	'Micael',
+    ];
+    friends[0] = 'micael'; // Modificando a lista original
+    console.log(friends[0]); // micael
+
+    // Lista imutável
+    let friendsTuple: readonly [string, ...string[]] = [
+    	'Sara',
+    	'Tali',
+    	'Chloe',
+    	'Claire',
+    	'Micael',
+    ];
+    friends[0] = 'micael'; // ERROR! Cannot assign to '0' because it is a read-only property (2540)
+    ```
+
+    - Variação de formas de declarar arrays e tuplas
+
+    ```Typescript
+    type A = readonly string[] // readonly string[]
+    type B = ReadonlyArray<string> // readonly string[]
+    type C = Readonly<string[]> // readonly string[]
+
+    type D = readonly [number, string] // readonly [number, string]
+    type E = Readonly<[number, string]> // readonly [number, string]
+
+    ```
+
+    > Observe que, embora as matrizes somente leitura possam tornar seu código mais fácil de raciocinar em alguns casos, evitando a mutabilidade, elas são apoiadas por matrizes JavaScript regulares. Isso significa que mesmo pequenas atualizações em um array resultam em ter que copiar o array original primeiro, o que pode prejudicar o desempenho de tempo de execução do aplicativo se você não tiver cuidado. Para arrays pequenos, essa sobrecarga raramente é perceptível, mas para arrays maiores, a sobrecarga pode se tornar significativa.
+
+    > Se você planeja fazer uso pesado de arrays imutáveis, considere alcançar uma implementação mais eficiente, como o excelente imutável de [Lee Byron](https://www.npmjs.com/package/immutable).
+
+  ## null, undefined, void, and never
+
+  > Além de nulo e indefinido, TypeScript também tem void e nunca.
+
+  - `null`
+  - `undefined`
+  - `void`
+  - `never`
+
+    > `never` é o tipo de uma função que nunca retorna (como uma função que lança uma exceção, ou uma que é executada para sempre)
+
+    ```typescript
+    // (lancarError) Uma função que retorna never
+    function lancarError(): never {
+    	throw TypeError('I always error');
+    }
+
+    // Outra função que retorna never
+    function inicarJogo(): never {
+    	while (true) {
+    		correr();
+    	}
+    }
+    ```
+
+- Tipos que representa ausência de algo
+
+  | Tipo      | Significado                                     |
+  | --------- | ----------------------------------------------- |
+  | null      | Ausência de um valor                            |
+  | undefined | Variável que ainda não foi atribuída a um valor |
+  | void      | Função que não tem uma declaração de retorno    |
+  | never     | Função que nunca retorna                        |
+
+- `enuns`
+
+  > O Typescript permite que você mescle tipos `Enuns`
+
+  ```Typescript
+    enum Language {
+      English = 0,
+      Spanish = 1
+    }
+    enum Language {
+      Russian = 2
+    }
+    Language[100] // Não existe, mas o Typescript não irá reclama! Para evitar esse comportamento podemos utilizar const antes de declarar o enum
+  ```
+
+  - O código listado acima irá mesclar Russian os `enums` que já foram inseridos.
+
+  - Podemos inserir expressões matemáticas, também:
+
+  ```typescript
+  enum Language {
+  	English = 100,
+  	Spanish = 200 + 300,
+  	Russian, // TypeScript infers 501 (the next number after 500)
   }
-  let myArray = buildArray() // (string | number)[]
-  myArray.push(10n) // Argument of type '10n' is not assignable to parameter of type 'string | number | boolean'
-
   ```
 
 </details>
