@@ -1,5 +1,7 @@
 ## Programming TypeScript
 
+[Repositório oficial do autor](https://github.com/bcherny/programming-typescript-answers)
+
 <details>
   <summary>TypeScript: A 10_000 Foot View (Chap 02)</summary>
 
