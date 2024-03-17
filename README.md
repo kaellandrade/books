@@ -16,15 +16,15 @@
 
 1. TypeScript source -> TypeScript AST [TSC]
 
-    - Aqui é usado os tipos declarados;
+   - Aqui é usado os tipos declarados;
 
 2. AST é verificada por typechecker [TSC]
 
-    - Aqui é usado os tipos declarados;
+   - Aqui é usado os tipos declarados;
 
 3. TypeScript AST -> JavaScript source [TSC]
 
-    - Aqui não é mais utilizado os tipos.
+   - Aqui não é mais utilizado os tipos.
 
    ```
    Quando o TSC compila seu código de TypeScript para JS, ele não olha mais para os seus tipos.
@@ -52,7 +52,7 @@ JavaScript engine (V8, Spidermonkey[Firefox], JSCore[Safari], Chakra[Edge])
 Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma modelo mental de como o TS funciona:
 
 | Recursos do sistemas de tipos             | JS                     | TS                        |
-|-------------------------------------------|------------------------|---------------------------|
+| ----------------------------------------- | ---------------------- | ------------------------- |
 | Como os tipos são vinculados ?            | Dinâmico               | Estático                  |
 | Os tipos são convertidos automaticamente? | Sim                    | Não(principal)            |
 | Quando os tipos são verificados?          | Tempo de execução      | Tempo de compilação       |
@@ -62,8 +62,7 @@ Comparação entre os sistemas de tipos enter Js e TS, para ajudar criar uma mod
 
 > O compilador TSC é escrito em TypeScript, ou seja, o TS é uma linguagem
 >
->
-bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/#:~:text=A%20self-hosting%20compiler%20is%20one%20that%20can%20compile,writing%20%3D%2C%20you%20write%20the%20actual%20word%20EQUALS.)
+> bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/#:~:text=A%20self-hosting%20compiler%20is%20one%20that%20can%20compile,writing%20%3D%2C%20you%20write%20the%20actual%20word%20EQUALS.)
 
 ## [TSLint](https://palantir.github.io/tslint/)
 
@@ -71,10 +70,10 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
   ### Dicas
 
-    1. Instale o `ts-node` e use-o para compilar e executar seu TypeScript com um único comando.
-    2. Use uma ferramenta de scaffolding como `typescript-node-starter` para gerar rapidamente sua estrutura de pastas
-       para
-       você.
+  1. Instale o `ts-node` e use-o para compilar e executar seu TypeScript com um único comando.
+  2. Use uma ferramenta de scaffolding como `typescript-node-starter` para gerar rapidamente sua estrutura de pastas
+     para
+     você.
 
 # Tudo sobre os (Chap 03)
 
@@ -90,22 +89,22 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 ## ABCs dos tipos
 
 - `any`
-    - Evite, assim como o fogo! (Utilizar noImplicitAny).
+  - Evite, assim como o fogo! (Utilizar noImplicitAny).
 - `unknown`
 
-    - Pode ser utilizado para valores desconhecidos, mas procure sempre conhecer seus valores!;
-    - Também pode ser refinado.
-    - Operadores que podem ser usados:
+  - Pode ser utilizado para valores desconhecidos, mas procure sempre conhecer seus valores!;
+  - Também pode ser refinado.
+  - Operadores que podem ser usados:
 
-      > ==, ===, ||, &&, ?, !
+    > ==, ===, ||, &&, ?, !
 
-    - Exemplo:
+  - Exemplo:
 
-      ```typescript
-      let a: unknown = 20; // TypesScript não inferirá nada sobre unknown;
-      let b = a === 1234; // SIM! Podemos comparar os valores do tipo unknown, ou seja, utilizar os operadores relacionais.
-      let c = a + 10; //  NÃO! Pois estamos pressupondo que ele é um número
-      ```
+    ```typescript
+    let a: unknown = 20; // TypesScript não inferirá nada sobre unknown;
+    let b = a === 1234; // SIM! Podemos comparar os valores do tipo unknown, ou seja, utilizar os operadores relacionais.
+    let c = a + 10; //  NÃO! Pois estamos pressupondo que ele é um número
+    ```
 
 - `boolean`
   Exemplo:
@@ -118,8 +117,8 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   let f: true = false // ERROR, tipo literal apenas com valor true.
   ```
 - `number`
-    - Operações básicas aritméticas, relacionais ...
-    - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
+  - Operações básicas aritméticas, relacionais ...
+  - Curiosidade! (Podemos utilizar numeric separators, separadores numéricos)
   ```typescript
   let oneMillion = 1_000_000; // Igual à 1000000
   let a: 1_000_000_000_000_000 = 1000000000000000; // Muito útil para números grandes
@@ -127,20 +126,20 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   console.log(a + b);
   ```
 - `bigint`
-    - Operações com inteiros
+  - Operações com inteiros
   ```typescript
   let a: bigint = 10n;
   ```
 - `string`
 - `symbol  (ES2015).`
 
-    - Alternativa para chave de strings em objetos e maps
-    - Um Symbol é único
-    - O principal objetivo dos Symbols no TypeScript (e JavaScript) é fornecer uma maneira de criar identificadores
-      únicos
-    - Symbols permitem que você crie propriedades de objeto que são únicas e não podem ser sobrescritas ou acessadas
-      acidentalmente1. Isso é útil quando você está escrevendo uma biblioteca ou um framework e quer evitar conflitos
-      com o código do usuário.
+  - Alternativa para chave de strings em objetos e maps
+  - Um Symbol é único
+  - O principal objetivo dos Symbols no TypeScript (e JavaScript) é fornecer uma maneira de criar identificadores
+    únicos
+  - Symbols permitem que você crie propriedades de objeto que são únicas e não podem ser sobrescritas ou acessadas
+    acidentalmente1. Isso é útil quando você está escrevendo uma biblioteca ou um framework e quer evitar conflitos
+    com o código do usuário.
 
   ```typescript
   let a = Symbol('a');
@@ -162,92 +161,92 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   ```
 
   > Pense em símbolos únicos como outros tipos literais, como 1, verdadeiro ou “literal”. Eles são uma forma de criar um
-  tipo que representa um determinado habitante do símbolo.
+  > tipo que representa um determinado habitante do símbolo.
 
 - `object`
 
-    - No exemplo abaixo ambos satisfazem o shape(interface)
+  - No exemplo abaixo ambos satisfazem o shape(interface)
 
-      ```typescript
-      // Definindo uma interface para objetos
-      interface Aluno {
-          nome: string;
-          dataNascimento: string;
-      }
-  
-      // Formato de classe
-      class ClasseAluno {
-          constructor(public nome: string, public dataNascimento: string) {}
-      }
-  
-      // Formato objeto literal
-      let alunoA: Aluno = {
-          dataNascimento: '1996-01-02',
-          nome: 'José',
-      };
-  
-      let alunoB: Aluno = new ClasseAluno('Maria', '1996-04-08');
-      ```
+    ```typescript
+    // Definindo uma interface para objetos
+    interface Aluno {
+    	nome: string;
+    	dataNascimento: string;
+    }
 
-    - Neste exemplo abaixo, podemos definir `n` props de um tipo específico: `[key: T]: U`, index signatures (assinatura
-      de índices)
+    // Formato de classe
+    class ClasseAluno {
+    	constructor(public nome: string, public dataNascimento: string) {}
+    }
 
-      ```typescript
-      let a: {
-          b: number; // Deve conter essa prop number
-          c?: string; // Opcional (caso não seja definida fica undefined)
-          [key: number]: boolean; // pode haver n props com keys numbers e valores booleans
-      };
-  
-      a = {
-          b: 1,
-          c: 'teste',
-          10: true,
-          1: true,
-      };
-      ```
+    // Formato objeto literal
+    let alunoA: Aluno = {
+    	dataNascimento: '1996-01-02',
+    	nome: 'José',
+    };
 
-    - Operador `readonly`
+    let alunoB: Aluno = new ClasseAluno('Maria', '1996-04-08');
+    ```
 
-      ```typescript
-      let a: {
-          readonly opinicaoDoTeimoso: string;
-      };
-  
-      a = {
-          opinicaoDoTeimoso: 'Prefiro JavaScript puro!',
-      };
-  
-      a.opinicaoDoTeimoso = 'Cara, Typescript é TOP!'; // Não adianta, ele não vai ouvir (operador readonly)
-      ```
+  - Neste exemplo abaixo, podemos definir `n` props de um tipo específico: `[key: T]: U`, index signatures (assinatura
+    de índices)
 
-    - Objetos `{}` (vazios) ou , evitar o máximo possível, pois qualquer coisa pode ser atribuídos a eles,
-      exceto: `null`, `undefined`
+    ```typescript
+    let a: {
+    	b: number; // Deve conter essa prop number
+    	c?: string; // Opcional (caso não seja definida fica undefined)
+    	[key: number]: boolean; // pode haver n props com keys numbers e valores booleans
+    };
 
-      ```Typescript
-      let danger: {}; // ou let danger: Object;
-      danger = {};
-      danger = { x: 1_000 };
-      danger = [];
-      danger = 25;
-      ```
+    a = {
+    	b: 1,
+    	c: 'teste',
+    	10: true,
+    	1: true,
+    };
+    ```
 
-      > `object` é mais restrito e não permite valores primitivos, enquanto `Object` é menos restrito e permite quase
-      todos os tipos de valores1.
+  - Operador `readonly`
 
-        - Este valor é válido para um `object`?
+    ```typescript
+    let a: {
+    	readonly opinicaoDoTeimoso: string;
+    };
 
-          | Value             | `{}` | `object` | `Object` |
-                                                                                                                                                                                | ----------------- | ---- | -------- | -------- |
-          | `{}`              | Sim  | Sim      | Sim      |
-          | `['a']`           | Sim  | Sim      | Sim      |
-          | `function () {}`  | Sim  | Sim      | Sim      |
-          | `new String('a')` | Sim  | Sim      | Sim      |
-          | `'a'`             | Sim  | Não      | Sim      |
-          | `10`              | Sim  | Não      | Sim      |
-          | `Symbol('a') `    | Sim  | Não      | Sim      |
-          | `null `           | Não  | Não      | Não      |
-          | `undefined  `     | Não  | Não      | Não      |
+    a = {
+    	opinicaoDoTeimoso: 'Prefiro JavaScript puro!',
+    };
+
+    a.opinicaoDoTeimoso = 'Cara, Typescript é TOP!'; // Não adianta, ele não vai ouvir (operador readonly)
+    ```
+
+  - Objetos `{}` (vazios) ou , evitar o máximo possível, pois qualquer coisa pode ser atribuídos a eles,
+    exceto: `null`, `undefined`
+
+    ```Typescript
+    let danger: {}; // ou let danger: Object;
+    danger = {};
+    danger = { x: 1_000 };
+    danger = [];
+    danger = 25;
+    ```
+
+    > `object` é mais restrito e não permite valores primitivos, enquanto `Object` é menos restrito e permite quase
+    > todos os tipos de valores1.
+
+    - Este valor é válido para um `object`?
+
+      | Value             | `{}` | `object` | `Object` |
+      | ----------------- | ---- | -------- | -------- |
+      | `{}`              | Sim  | Sim      | Sim      |
+      | `['a']`           | Sim  | Sim      | Sim      |
+      | `function () {}`  | Sim  | Sim      | Sim      |
+      | `new String('a')` | Sim  | Sim      | Sim      |
+      | `'a'`             | Sim  | Não      | Sim      |
+      | `10`              | Sim  | Não      | Sim      |
+      | `Symbol('a') `    | Sim  | Não      | Sim      |
+      | `null `           | Não  | Não      | Não      |
+      | `undefined  `     | Não  | Não      | Não      |
 
   ## Types Aliases (Apelido), União e Interseções
 
@@ -273,29 +272,29 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
   ```
 
-    - Mantém o escopo assim como `let` e `const`;
+  - Mantém o escopo assim como `let` e `const`;
 
-      ```typescript
-      type Color = 'red';
-      let x = Math.random() < 0.5;
-  
-      if (x) {
-          type Color = 'blue'; // Este aliases sombreia o Color Declarado fora do escopo.
-          let b: Color = 'blue';
-      } else {
-          let c: Color = 'red';
-      }
-      ```
+    ```typescript
+    type Color = 'red';
+    let x = Math.random() < 0.5;
 
-        - Aliases de tipo são úteis para `DRYing(Dont't Repeat Yourself)` tipos complexos repetidos
+    if (x) {
+    	type Color = 'blue'; // Este aliases sombreia o Color Declarado fora do escopo.
+    	let b: Color = 'blue';
+    } else {
+    	let c: Color = 'red';
+    }
+    ```
+
+    - Aliases de tipo são úteis para `DRYing(Dont't Repeat Yourself)` tipos complexos repetidos
 
   > Ao decidir se deve ou não usar um alias para um tipo, use o mesmo julgamento usado ao decidir se deve ou não extrair
-  um valor em sua própria variável.
+  > um valor em sua própria variável.
 
   ### União e Interseção
 
-    - `|` operador de união
-    - `&` operador de intersecção
+  - `|` operador de união
+  - `&` operador de intersecção
 
   ```typescript
   type Gato = { nome: string; ronona: boolean };
@@ -333,8 +332,8 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   };
   ```
 
-    - Geralmente uniões **aparecem com mais frequências que interseções**, veja um exemplo de função que tem tal
-      retorno.
+  - Geralmente uniões **aparecem com mais frequências que interseções**, veja um exemplo de função que tem tal
+    retorno.
 
   ```typescript
   // "true" | null
@@ -358,50 +357,50 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
   ## Arrays
 
-    - `array`
+  - `array`
 
-      ```typescript
-      let numeros = [1, 2, 3]; // number[]
-      var stringsA = ['a', 'b']; // string[]
-      let stringsB: string[] = ['a']; // string[]
-      let stringsAndNumbersUnion = [1, 'a']; // (string | number)[]
-      const stringsAndNumbersConstUnion = [2, 'b']; // (string | number)[]
-  
-      let onlySstrings = ['red'];
-      onlySstrings.push('blue');
-      onlySstrings.push(true); // Error TS2345: Argument of type 'true' is not assignable to parameter of type 'string'.
-  
-      let arrayAny = []; // any[]
-      arrayAny.push(1); // number[]
-      arrayAny.push('red'); // (string | number)[]
-  
-      let onlyNumbers: number[] = []; // number[]
-      onlyNumbers.push(1); // number[]
-      onlyNumbers.push('red'); // Error TS2345: Argument of type '"red"' is not
-      // assignable to parameter of type 'number'.
-      ```
+    ```typescript
+    let numeros = [1, 2, 3]; // number[]
+    var stringsA = ['a', 'b']; // string[]
+    let stringsB: string[] = ['a']; // string[]
+    let stringsAndNumbersUnion = [1, 'a']; // (string | number)[]
+    const stringsAndNumbersConstUnion = [2, 'b']; // (string | number)[]
 
-      > À medida que você manipula a matriz e adiciona elementos a ela, o **TypeScript começa a agrupar o tipo da matriz
-      **. Depois que a matriz sair do escopo em que foi definida (por exemplo, se você a declarou em uma função e a
-      retornou), o TypeScript atribuirá a ela um tipo final que não poderá mais ser expandido:
+    let onlySstrings = ['red'];
+    onlySstrings.push('blue');
+    onlySstrings.push(true); // Error TS2345: Argument of type 'true' is not assignable to parameter of type 'string'.
 
-      Veja o seguinte exemplo de uma função que configura um array em seu escopo, e em seguida o retorna:
+    let arrayAny = []; // any[]
+    arrayAny.push(1); // number[]
+    arrayAny.push('red'); // (string | number)[]
 
-      ```Typescript
-      function buildArray() {
-        let arr = [];
-  
-        arr.push('numero 1');
-        arr.push(1);
-        arr.push(true);
-        return arr; // Return string | number | boolean
-      }
-      let myArray = buildArray() // (string | number)[]
-      myArray.push(10n) // Argument of type '10n' is not assignable to parameter of type 'string | number | boolean'
-  
-      ```
+    let onlyNumbers: number[] = []; // number[]
+    onlyNumbers.push(1); // number[]
+    onlyNumbers.push('red'); // Error TS2345: Argument of type '"red"' is not
+    // assignable to parameter of type 'number'.
+    ```
 
-    - `tuples`
+    > À medida que você manipula a matriz e adiciona elementos a ela, o **TypeScript começa a agrupar o tipo da matriz
+    > **. Depois que a matriz sair do escopo em que foi definida (por exemplo, se você a declarou em uma função e a
+    > retornou), o TypeScript atribuirá a ela um tipo final que não poderá mais ser expandido:
+
+    Veja o seguinte exemplo de uma função que configura um array em seu escopo, e em seguida o retorna:
+
+    ```Typescript
+    function buildArray() {
+      let arr = [];
+
+      arr.push('numero 1');
+      arr.push(1);
+      arr.push(true);
+      return arr; // Return string | number | boolean
+    }
+    let myArray = buildArray() // (string | number)[]
+    myArray.push(10n) // Argument of type '10n' is not assignable to parameter of type 'string | number | boolean'
+
+    ```
+
+  - `tuples`
 
   > Ao contrário da maioria dos outros tipos, as tuplas precisam ser explicitamente digitadas quando você as declara.
 
@@ -417,110 +416,110 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
   console.log(arrayPerson); // []
   ```
 
-    - Valores opcionais
+  - Valores opcionais
 
-      ```typescript
-      // Endereço com número opcional
-      let endereco: [string, number?][] = [
-          ['Av João Bebe Água'],
-          ['Rua mangabeira', 580],
+    ```typescript
+    // Endereço com número opcional
+    let endereco: [string, number?][] = [
+    	['Av João Bebe Água'],
+    	['Rua mangabeira', 580],
+    ];
+
+    // Equivalente
+    let moreTrainFares: ([string] | [string, number])[] = [
+    	// ...
+    ];
+    ```
+
+  - Tamanhos mínimos
+
+    ```Typescript
+      // Uma lista de elementos com pelo menos um elemento.
+      let meioDePagamento: [string, ...string[]] = [
+      'Débito XXXXXXX',
+      'Crédito YYYYYY',
       ];
-  
-      // Equivalente
-      let moreTrainFares: ([string] | [string, number])[] = [
-          // ...
-      ];
-      ```
+    // Uma lista heterogênea
+    let list: [number, boolean, ...string[]] = [1, false, 'a', 'b', 'c'];
+    ```
 
-    - Tamanhos mínimos
+    Diferente de outras linguagens de programação, por exemplo, Python. As tuplas no Typescript são mutáveis, porém
+    podemos torná-las imutáveis tornando ReadOnly:
 
-      ```Typescript
-        // Uma lista de elementos com pelo menos um elemento.
-        let meioDePagamento: [string, ...string[]] = [
-        'Débito XXXXXXX',
-        'Crédito YYYYYY',
-        ];
-      // Uma lista heterogênea
-      let list: [number, boolean, ...string[]] = [1, false, 'a', 'b', 'c'];
-      ```
+    ```typescript
+    // Uma lista de elementos com pelo menos um elemento mutável.
+    let friends: [string, ...string[]] = [
+    	'Sara',
+    	'Tali',
+    	'Chloe',
+    	'Claire',
+    	'Micael',
+    ];
+    friends[0] = 'micael'; // Modificando a lista original
+    console.log(friends[0]); // micael
 
-      Diferente de outras linguagens de programação, por exemplo, Python. As tuplas no Typescript são mutáveis, porém
-      podemos torná-las imutáveis tornando ReadOnly:
+    // Lista imutável
+    let friendsTuple: readonly [string, ...string[]] = [
+    	'Sara',
+    	'Tali',
+    	'Chloe',
+    	'Claire',
+    	'Micael',
+    ];
+    friends[0] = 'micael'; // ERROR! Cannot assign to '0' because it is a read-only property (2540)
+    ```
 
-      ```typescript
-      // Uma lista de elementos com pelo menos um elemento mutável.
-      let friends: [string, ...string[]] = [
-          'Sara',
-          'Tali',
-          'Chloe',
-          'Claire',
-          'Micael',
-      ];
-      friends[0] = 'micael'; // Modificando a lista original
-      console.log(friends[0]); // micael
-  
-      // Lista imutável
-      let friendsTuple: readonly [string, ...string[]] = [
-          'Sara',
-          'Tali',
-          'Chloe',
-          'Claire',
-          'Micael',
-      ];
-      friends[0] = 'micael'; // ERROR! Cannot assign to '0' because it is a read-only property (2540)
-      ```
+    - Variação de formas de declarar arrays e tuplas
 
-        - Variação de formas de declarar arrays e tuplas
+    ```Typescript
+    type A = readonly string[] // readonly string[]
+    type B = ReadonlyArray<string> // readonly string[]
+    type C = Readonly<string[]> // readonly string[]
 
-      ```Typescript
-      type A = readonly string[] // readonly string[]
-      type B = ReadonlyArray<string> // readonly string[]
-      type C = Readonly<string[]> // readonly string[]
-  
-      type D = readonly [number, string] // readonly [number, string]
-      type E = Readonly<[number, string]> // readonly [number, string]
-  
-      ```
+    type D = readonly [number, string] // readonly [number, string]
+    type E = Readonly<[number, string]> // readonly [number, string]
 
-      > Observe que, embora as matrizes somente leitura possam tornar seu código mais fácil de raciocinar em alguns
-      casos, evitando a mutabilidade, elas são apoiadas por matrizes JavaScript regulares. Isso significa que mesmo
-      pequenas atualizações em um array resultam em ter que copiar o array original primeiro, o que pode prejudicar o
-      desempenho de tempo de execução do aplicativo se você não tiver cuidado. Para arrays pequenos, essa sobrecarga
-      raramente é perceptível, mas para arrays maiores, a sobrecarga pode se tornar significativa.
+    ```
 
-      > Se você planeja fazer uso pesado de arrays imutáveis, considere alcançar uma implementação mais eficiente, como
-      o excelente imutável de [Lee Byron](https://www.npmjs.com/package/immutable).
+    > Observe que, embora as matrizes somente leitura possam tornar seu código mais fácil de raciocinar em alguns
+    > casos, evitando a mutabilidade, elas são apoiadas por matrizes JavaScript regulares. Isso significa que mesmo
+    > pequenas atualizações em um array resultam em ter que copiar o array original primeiro, o que pode prejudicar o
+    > desempenho de tempo de execução do aplicativo se você não tiver cuidado. Para arrays pequenos, essa sobrecarga
+    > raramente é perceptível, mas para arrays maiores, a sobrecarga pode se tornar significativa.
+
+    > Se você planeja fazer uso pesado de arrays imutáveis, considere alcançar uma implementação mais eficiente, como
+    > o excelente imutável de [Lee Byron](https://www.npmjs.com/package/immutable).
 
   ## null, undefined, void, and never
 
   > Além de nulo e indefinido, TypeScript também tem void e nunca.
 
-    - `null`
-    - `undefined`
-    - `void`
-    - `never`
+  - `null`
+  - `undefined`
+  - `void`
+  - `never`
 
-      > `never` é o tipo de uma função que nunca retorna (como uma função que lança uma exceção, ou uma que é executada
-      para sempre)
+    > `never` é o tipo de uma função que nunca retorna (como uma função que lança uma exceção, ou uma que é executada
+    > para sempre)
 
-      ```typescript
-      // (lancarError) Uma função que retorna never
-      function lancarError(): never {
-          throw TypeError('I always error');
-      }
-  
-      // Outra função que retorna never
-      function inicarJogo(): never {
-          while (true) {
-              correr();
-          }
-      }
-      ```
+    ```typescript
+    // (lancarError) Uma função que retorna never
+    function lancarError(): never {
+    	throw TypeError('I always error');
+    }
+
+    // Outra função que retorna never
+    function inicarJogo(): never {
+    	while (true) {
+    		correr();
+    	}
+    }
+    ```
 
 - Tipos que representa ausência de algo
 
   | Tipo      | Significado                                     |
-                                    |-----------|-------------------------------------------------|
+  | --------- | ----------------------------------------------- |
   | null      | Ausência de um valor                            |
   | undefined | Variável que ainda não foi atribuída a um valor |
   | void      | Função que não tem uma declaração de retorno    |
@@ -541,9 +540,9 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
     Language[100] // Não existe, mas o Typescript não irá reclama! Para evitar esse comportamento podemos utilizar const antes de declarar o enum
   ```
 
-    - O código listado acima irá mesclar Russian os `enums` que já foram inseridos.
+  - O código listado acima irá mesclar Russian os `enums` que já foram inseridos.
 
-    - Podemos inserir expressões matemáticas, também:
+  - Podemos inserir expressões matemáticas, também:
 
   ```typescript
   enum Language {
@@ -557,62 +556,90 @@ bootstrapping [self-hosting](https://robertheaton.com/2017/10/24/what-is-a-self-
 
 - First-class object (objetos de primeira classe);
 
-````typescript
+```typescript
 // Named function
 function greet(name: string) {
-    return 'hello ' + name
+	return 'hello ' + name;
 }
 
 // Function expression
 let greet2 = function (name: string) {
-    return 'hello ' + name
-}
+	return 'hello ' + name;
+};
 // Arrow function expression
 let greet3 = (name: string) => {
-    return 'hello ' + name
-}
+	return 'hello ' + name;
+};
 // Shorthand arrow function expression
-let greet4 = (name: string) =>
-        'hello ' + name
+let greet4 = (name: string) => 'hello ' + name;
 // Function constructor (evite pois seu não é typesafe)
-let greet5 = new Function('name', 'return "hello " + name')
-````
+let greet5 = new Function('name', 'return "hello " + name');
+```
 
 ## Parâmetros opcionais
 
-````typescript
+```typescript
 function logg(mesagem: string, userId?: string): void {
-    let time = new Date().toLocaleTimeString();
-    console.log(time, messagem, userId || 'Sem id')
+	let time = new Date().toLocaleTimeString();
+	console.log(time, messagem, userId || 'Sem id');
 }
-````
+```
 
 - `Variadic function API`
+
   ```javascript
-  // js function 
-    function variadicFnArgumentsUnsafeInJS(){
-      // arguments is “magic” (não é typesafe a 'lista' de arguments)
-        console.log(arguments);
-      }
-  
-    variadicFnArgumentsUnsafeInJS(1,2,3,4); // Error TS2554: Expected 0 arguments, but got 4.
+  // js function
+  function variadicFnArgumentsUnsafeInJS() {
+  	// arguments is “magic” (não é typesafe a 'lista' de arguments)
+  	console.log(arguments);
+  }
+
+  variadicFnArgumentsUnsafeInJS(1, 2, 3, 4); // Error TS2554: Expected 0 arguments, but got 4.
   // [Arguments] { '0': 'argumento01', '1': 'argumento02' }
-    ```
+  ```
 
 - Como criar funções variadic function com typesafe? Rest parameters!!
   Sendo assim, ao invés de recorrermos ao argumento mágico `arguments` do JS, podemos
   utilizar o operador rest para atingir tal comportamento, veja:
-    ````typescript
-    function sumvariadicSafeTS(...numeros: number[]): number {
-    return numeros.reduce((total, n) => total + n, 0);
-    }
 
-    sumvariadicSafeTS(1, 2, 3); // valor 6
-    ````
+  ```typescript
+  function sumvariadicSafeTS(...numeros: number[]): number {
+  	return numeros.reduce((total, n) => total + n, 0);
+  }
+
+  sumvariadicSafeTS(1, 2, 3); // valor 6
+  ```
+
   - Uma função variadic só pode ter no máximo um operador rest, e esse parâmetro deve ser o último da lista de parâmetros da função, exem:
     - `function (param1:string, param2:string, param3:number, ...restparam:number[])` (**válido**)
     - `function (param1:string, param2:string,...restparam:number[], param3:number)` (**inválido** operador não está no fim)
     - `function (..restParam:string[],...restparam:number[])` (**inválido** não é permitido 2 operadores rest na assinatura do método)
+
 - fixed-arity API (número fixo de argumentos, pode usar um array para simular o comportamento da anterior)
 
+## call, apply e bind
 
+```Typescript
+function somar(x:number, y:number):number{
+  return x+y;
+}
+
+somar(5, 10) // avalia como 15
+somar.apply(null, [5,10]); // avalia como 15 (vincula o this a sua função, aqui o this é null)
+somar.call(null, 5, 10); // avalia como 15 (faz o mesmo que apply porém colocar os argumentos em ordem ao invés de espalhar)
+somar.bind(null, 5,10)(); //avalia como 15 (faz o que o call realiza, porém retorna uma nova função vinculada ao this.)
+
+```
+
+## `this`
+
+Devido a viação de contexto do `this` no Javascript, o Typescript tratar argumentos como nome `this` em sua assinatura como uma palavra reservada.
+Por exemplo, essa função `formataData` teoricamente ela não recebe argumentos, mas sim o contexto do `this` que seria a data atual quando chamado o `call`
+
+```Typescript
+function formatarData(this: Date) {
+	return `${this.getDate()}/${this.getMonth()}/${this.getFullYear()}`;
+}
+console.log(formatarData.call(new Date()));
+
+```
