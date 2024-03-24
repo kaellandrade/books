@@ -633,7 +633,7 @@ somar.bind(null, 5,10)(); //avalia como 15 (faz o que o call realiza, porém ret
 
 ## `this`
 
-Devido a viação de contexto do `this` no Javascript, o Typescript tratar argumentos como nome `this` em sua assinatura como uma palavra reservada.
+Devido a variação de contexto do `this` no Javascript, o Typescript trata argumentos como nome `this` em sua assinatura como uma palavra reservada.
 Por exemplo, essa função `formataData` teoricamente ela não recebe argumentos, mas sim o contexto do `this` que seria a data atual quando chamado o `call`
 
 ```Typescript
@@ -643,3 +643,67 @@ function formatarData(this: Date) {
 console.log(formatarData.call(new Date()));
 
 ```
+
+## _Generators_
+
+O Typescript dá suporte a [Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+Como próprio nome sugere, generators são forma de gerar valores de forma (lazy), ou seja, preguiçosa. Sendo assim, uma função geradora, por exemplo, ela pode ir gerando valores a medida que você vai pedindo. Veja o exemplo de uma função clássica que calcula o Fobonacci: (criamos funções geradoras por meio da caractere `*` antes da assinatura da função)
+
+```Typescript
+function* createFibonacciGenerator(): Generator<number> {
+	let a = 0;
+	let b = 1;
+	while (true) {
+		yield a;
+		[a, b] = [b, a + b];
+	}
+}
+let fibonacciGenerator = createFibonacciGenerator(); // IterableIterator<number>
+console.log(fibonacciGenerator.next()); // evaluates to {value: 0, done: false}
+console.log(fibonacciGenerator.next()); // evaluates to {value: 1, done: false}
+console.log(fibonacciGenerator.next()); // evaluates to {value: 1, done: false}
+console.log(fibonacciGenerator.next()); // evaluates to {value: 2, done: false}
+console.log(fibonacciGenerator.next()); // evaluates to {value: 3, done: false}
+console.log(fibonacciGenerator.next()); // evaluates to {value: 5, done: false}
+```
+
+Observe que os valores são gerados a medida que chamamos o `next()`, ou seja, por mais que a função tenha um `while(true)`, ela fica 'congelada' até que solicitemos o próximo valor.
+
+## Iterators
+
+> Enquanto os geradores são uma maneira de produzir um fluxo de valores, os iteradores são uma maneira de consumir esses valores.
+
+Antes disso vejamos a definição de algo Iterável(Iterable):
+
+> Qualquer objeto que contém a propriedade chamada Symbol.iterator, cujo valor é uma função que retorna um Iterator.
+
+Agora, a definição de Iterador(Iterator)
+
+> Qualquer objeto que defina um método chamado `next`, que retorna um objeto com o valor de propriedades e `done`.
+
+Quando você cria um gerador (digamos, chamando createFibonacciGenerator), você obtém um valor de volta que é um Iterator e um Iterable — um iterador iterável — porque ele define uma propriedade `Symbol.iterator` e um método `next`.
+
+Exemplo:
+
+```Typescript
+let numbers = {
+	*[Symbol.iterator]() {
+		for (let n = 1; n <= 10; n++) {
+			yield n;
+		}
+	},
+};
+
+for (let a of numbers) {
+	console.log(a); // 1,2,3,4 ... 10
+}
+
+console.log([...numbers]); // [1,2,3,4...10]
+
+let [um, dois, ...resto] = numbers;
+console.log(um, dois, resto); // 1, 2, [3,4,5,6..10]
+```
+
+## Type level e Value level code:
+
+> Se for um código JavaScript válido, então é de nível de valor; se for TypeScript válido, mas não JavaScript válido, então é typelevel
