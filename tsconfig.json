@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"lib": ["es2015"], // Quais APIs o TSC deve presumir que existem no ambiente em que você executará seu código?
+		"lib": ["es2015", "DOM"], // Quais APIs o TSC deve presumir que existem no ambiente em que você executará seu código?
 		"module": "commonjs",
 		"outDir": "app/dist/js",
 		"sourceMap": true,
