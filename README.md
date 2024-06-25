@@ -707,3 +707,17 @@ console.log(um, dois, resto); // 1, 2, [3,4,5,6..10]
 ## Type level e Value level code:
 
 > Se for um código JavaScript válido, então é de nível de valor; se for TypeScript válido, mas não JavaScript válido, então é typelevel
+
+```typescript
+// Podemos definit um valor padrão para um Generic type
+type MyEvent<T extends HTMLElement = HTMLElement> = {
+ target: T
+ type: string
+}
+```
+
+## Type-Driven Development
+
+> Um estilo de programação onde você esboça as assinaturas de tipos primeiro e preenche os valores depois.
+
+> Ao esboçar seu programa primeiro no nível do tipo, você garante que tudo faz sentido em um alto nível antes de proseguir para suas implementações.
