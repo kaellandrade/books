@@ -1,0 +1,1 @@
+TODO: Implementar o restante do modelo do Chess.
