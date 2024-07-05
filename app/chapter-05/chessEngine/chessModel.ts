@@ -49,6 +49,8 @@ class Position {
             file: Math.abs(position.file.charCodeAt(0) - this.file.charCodeAt(0))
         }
     }
+
+
 }
 
 class King extends Piece {
