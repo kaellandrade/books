@@ -59,6 +59,7 @@ type B = A & {
 // declaration merging.
 interface A {
     a:string
+    // Modificadores de acesso não são permitidos em interfaces, mas readonly pode.
 }
 
 interface A {
@@ -75,3 +76,107 @@ class Test implements A{
     c: string;
 }
 ```
+
+## Classes são estruturalmente tipadas
+
+> Como qualquer outro tipo em TypeScript, TypeScript compara classes por sua estrutura, não por seu nome
+
+Diferente de linguagens como C#, Java, Sacala e outras onde as classes são tipada nominalmente.
+
+Em código isso significa o seguinte:
+
+```typescript
+class Zebra {
+ trot() {
+ // ...
+ }
+}
+class Poodle {
+ trot() {
+ // ...
+ }
+}
+function ambleAround(animal: Zebra) {
+ animal.trot()
+}
+let zebra = new Zebra
+let poodle = new Poodle
+ambleAround(zebra) // OK
+ambleAround(poodle) // OK
+```
+
+A função `ambleAround` permite tanto objetos instanciados a partir de `Zebra` ou `Poodle`, ou seja, eles são intercambiáveis. Caso estivéssemo utilizando uma
+linguagem de classes nominalmente tipadas isso seria um erro, mas como Typescript é estruturalmente tipada isso é possível!
+
+Porém o Typescript não iria permitir se tivéssemos algo desse tipo:
+
+```typescript
+
+class A {
+    private nome:string;
+}
+
+class B extends A{
+
+}
+
+const fn = (a:A) => {}
+
+fn(new A()) // ok
+fn(new B()) // ok
+
+/*
+Porém isso não é permitido...
+Error TS2345: Argument of type '{x: number}' is not
+assignable to parameter of type 'A'. Property 'x' is
+private in type 'A' but not in type '{x: number}'.
+*/
+fn({nome:'micael'}) // ERROR
+```
+
+Tipo e valores possuem namespaces separados no Typescript.
+A maioria das coisas que você pode expressar no TypeScript são valores ou tipos:
+
+```typescript
+// values
+let a = 1999
+function b() {}
+// types
+type a = number
+interface b {
+ (): void
+}
+
+if (a + 1 > 3) //... // O TypeScript infere através do contexto que estamos querando trabalhar com o valor 'a' e não com o tipo 'a'
+let x: a = 3 // Aqui já é o contrário.
+
+```
+
+## Polimorfismo
+
+- Método `statics` não possuem acesso ao generics definido no escopo de uma classe (mesmo comportamento de não puder usar o os valores da classes com o `this`).
+
+Veja:
+
+```typescript
+class MyMap<K, V> {
+ constructor(initialKey: K, initialValue: V) {
+ // ...
+ }
+ get(key: K): V {
+ // ...
+ }
+ set(key: K, value: V): void {
+ // ...
+ }
+merge<K1, V1>(map: MyMap<K1, V1>): MyMap<K | K1, V | V1> {
+ // ...
+ }
+ static of<K, V>(k: K, v: V): MyMap<K, V> {
+ // ...
+ }
+}
+
+```
+
+## Mixins
