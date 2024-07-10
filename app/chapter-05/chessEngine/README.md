@@ -207,6 +207,7 @@ class MyMap<K, V> {
 ```
 
 ## Mixins
+
 Um mixin é apenas uma função que pega um construtor de classe e retorna um construtor de classe.
 > A pesar do Typescript não ter keyworkds como `mixin` ou `trait` é bastante fácil implementar.
 
@@ -219,3 +220,25 @@ Um mixin é apenas uma função que pega um construtor de classe e retorna um co
 - Apenas métodos concretos (não abstratos);
 - Pode haver estados (propriedades da instância).
 - [Ver mais...](https://www.typescriptlang.org/docs/handbook/mixins.html)
+
+## Decorators
+
+> Decorator é uma feature experimental do Typescript que nos dá uma sintaxe limpa para meta programação
+> com classes, métodos, propriedades e parâmetros de métodos.
+> É apenas uma sintaxe par chamar uma função em algo que você aplicou o @decorator.
+
+Para cada tipo de decorador, o TypeScript requer que você tenha uma
+função no escopo com o nome próprio e a assinatura necessária para esse tipo de decorador, ver tabela:
+
+o que você irá decorar
+
+| O que você ira decorar          | Tipo de assinatura esperado                                                                          |
+|---------------------------------|------------------------------------------------------------------------------------------------------|
+| `class`                         | `(constructor): {new(...any[])=> any})=>any`                                                         |
+| `Method`                        | `(classPrototype: {}, methodName: string, descriptor:PropertyDescriptor) => any`                     |
+| `Static method`                 | `(Constructor: {new(...any[]) => any}, methodName: string, descriptor: PropertyDescriptor) => any`   |
+| `Static method parameter`       | `(Constructor: {new(...any[]) => any}, paramName: string, index:number) => void`                     |
+| `Property`                      | `(classPrototype: {}, propertyName: string) => any`                                                  |
+| `Static property`               | `(Constructor: {new(...any[]) => any}, propertyName: string) =>any`                                  |
+| `Property getter/setter`        | `(classPrototype: {}, propertyName: string, descriptor:PropertyDescriptor) => any`                   |
+| `Static property getter/setter` | `(Constructor: {new(...any[]) => any}, propertyName: string, descriptor: PropertyDescriptor) => any` |
