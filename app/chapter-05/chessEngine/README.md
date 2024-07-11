@@ -225,7 +225,7 @@ Um mixin é apenas uma função que pega um construtor de classe e retorna um co
 
 > Decorator é uma feature experimental do Typescript que nos dá uma sintaxe limpa para meta programação
 > com classes, métodos, propriedades e parâmetros de métodos.
-> É apenas uma sintaxe par chamar uma função em algo que você aplicou o @decorator.
+> É apenas uma sintaxe para chamar uma função em algo que você aplicou o @decorator.
 
 Para cada tipo de decorador, o TypeScript requer que você tenha uma
 função no escopo com o nome próprio e a assinatura necessária para esse tipo de decorador, ver tabela:
@@ -242,3 +242,110 @@ o que você irá decorar
 | `Static property`               | `(Constructor: {new(...any[]) => any}, propertyName: string) =>any`                                  |
 | `Property getter/setter`        | `(classPrototype: {}, propertyName: string, descriptor:PropertyDescriptor) => any`                   |
 | `Static property getter/setter` | `(Constructor: {new(...any[]) => any}, propertyName: string, descriptor: PropertyDescriptor) => any` |
+
+> Decoradores de classe são funções que usam um único argumento — a classe.
+> Se a função decoradora retornar uma classe (como no exemplo), ela substituirá a classe que está decodificando em tempo
+> de execução; caso contrário, ele retornará a classe original.
+
+## Simulando final class
+
+Muito utilizado para definir que uma classe não pode ser herdada e seus métodos não podem ser sobrescritos.
+
+A ideia aqui é utilizar construtores privados(porém se deixarmos assim a classe também não pode ser instanciada).
+
+```typescript
+class MessageQueue {
+	private constructor(private messages: string[]) {
+	}
+}
+```
+
+Então podemos criar um método que faz e retorna essa instância para nós:
+Apensar de modificar um pouco a API da classe, isso previne que a classe seja utilizada na Herança.
+
+```typescript
+class MessageQueue {
+	private constructor(private messages: string[]) {
+	}
+
+	static create(messages: string[]) {
+		return new MessageQueue(messages)
+	}
+}
+```
+
+## Padrões de projeto
+
+- `factory pattern` - Padrão de projeto que deixar a decisão de criar objetos concretos para as fábricas criadoras.
+  aqui está um exemplo:
+
+```typescript
+type Shoe = {
+	purpose: string
+}
+
+class BalletFlat implements Shoe {
+	purpose = 'dancing'
+}
+
+class Boot implements Shoe {
+	purpose = 'woodcutting'
+}
+
+class Sneaker implements Shoe {
+	purpose = 'walking'
+}
+
+let Shoe = {
+	create(type: 'balletFlat' | 'boot' | 'sneaker'): Shoe {
+		switch (type) {
+			case 'balletFlat':
+				return new BalletFlat
+			case 'boot':
+				return new Boot
+			case 'sneaker':
+				return new Sneaker
+		}
+	}
+}
+Shoe.create('sneaker') // Shoe
+```
+
+- `builder pattern`
+  É uma maneira de separar a construção de um objeto da maneira como esse objeto é realmente implementando.
+  Veja por exemplo:
+
+```typescript
+class RequestBuilder {
+	private data: object | null = null
+	private method: 'get' | 'post' | null = null
+	private url: string | null = null
+
+	setMethod(method: 'get' | 'post'): this {
+		this.method = method
+		return this
+	}
+
+	setData(data: object): this {
+		this.data = data
+		return this
+	}
+
+	setURL(url: string): this {
+		this.url = url
+		return this
+	}
+
+	send() {
+		// ...
+	}
+}
+
+
+new RequestBuilder( // Parece com implementações do JQuery ou set do ES6
+	.setURL('/users')
+	.setMethod('get')
+	.setData({ firstName: 'Anna' })
+	.send()
+
+```

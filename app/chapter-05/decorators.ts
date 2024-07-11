@@ -2,16 +2,8 @@
 
 type ClassConstructor<T> = new(...args: any[]) => T;
 
-// wrap
-@serializable
-class APIPayload {
-	getvalue(): string {
-		return '';
-	}
-}
-
 function serializable<T extends ClassConstructor<{
-	getValue(): string
+	getValue(): Payload
 }>
 >(Constructor: T) {
 	// tslint:disable-next-line:max-classes-per-file
@@ -21,3 +13,16 @@ function serializable<T extends ClassConstructor<{
 		}
 	};
 }
+
+// wrap
+@serializable
+class APIPayload {
+	getvalue(): string {
+		return '';
+	}
+}
+
+
+let DecoratedAPIPayload = serializable(APIPayload);
+let payload = new DecoratedAPIPayload();
+payload.serialize();
