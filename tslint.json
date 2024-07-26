@@ -6,7 +6,9 @@
     "jsRules": {},
     "rules": {
         "semicolon": true,
-        "trailing-comma": true
+        "trailing-comma": true,
+        "max-classes-per-file": false,
+        "new-parens": false
     },
     "rulesDirectory": []
 }
