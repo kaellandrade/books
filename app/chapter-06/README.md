@@ -16,3 +16,60 @@ poucas linguagens tem. (Kotlin, Flw, Ceylon e claro, TypeScript)
 - a variáveis.
 
 A ideia de refinamento acontece muita das vezes quando realizamos uma verificação `if`.
+
+## Type Operators for Object Types
+
+## The keying-in operator
+```typescript
+type APIResponse = {
+	user: {
+		userId: string
+		friendList: {
+			count: number
+			friends: {
+				firstName: string
+				lastName: string
+			}[]
+		}
+	}
+}
+const resposta: APIResponse = {
+	user: {
+		userId: '123',
+		friendList: { count: 10, friends: [{ firstName: '', lastName: '' }] },
+	},
+};
+
+type FriendList = APIResponse['user']['friendList']
+type Friend = FriendList['friends'][number]
+const testetest: Friend = resposta.user.friendList.friends[2];
+
+function renderFriendList(friendList: FriendList) {
+	// ...
+}
+```
+
+## The keyof operator
+
+```typescript
+type CrazyType = {
+	count: number,
+	userId: string
+	friendsList: { name: string, age: number }[]
+}
+
+function get<O extends object, K extends keyof O>(o: O, k: K): O[K] {
+	return o[k];
+}
+const response: CrazyType = {
+	count:10,
+	friendsList:[],
+	userId:'100'
+}
+
+const a = get(response, 'userId')
+console.log(a)
+```
+- `get` pega um objeto `O` e uma chave `K`
+- `keyof` realizar a união de strings literal types
+- 
