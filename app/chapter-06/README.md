@@ -72,4 +72,5 @@ console.log(a)
 ```
 - `get` pega um objeto `O` e uma chave `K`
 - `keyof` realizar a união de strings literal types
-- 
+
+## Companion Object Patter
