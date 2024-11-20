@@ -124,3 +124,34 @@ function parseInput(input: string | number) {
 Note que se no lugar de `a is string` utilizássemos apenas o retorno `boolean` o typescript na função `pserseInput`
 não reconheceria que input.roUppCase() seria uma `string`. Isso porque o refinamento de tipo do typescript só funciona
 em um escopo, ou seja, ele não é transferível.
+
+### Conditional Type 
+Podemos definir tipos de retornos condicionais!
+Com base em uma condição ternária podemos definir um novo tipo de retorno, esse recurso
+geralmente é utulizado com Generics. Veja o seguinte exemplo:
+
+```typescript
+interface IdLabel {
+    id: number /* some fields */;
+}
+interface NameLabel {
+    name: string /* other fields */;
+}
+
+// Condiditional type (poderoso com generics)
+type NameOrId<T extends number | string> = T extends number
+        ? IdLabel
+        : NameLabel;
+
+function createLabel<T extends number | string>(idOrName: T): NameOrId<T> {
+    if (typeof idOrName === "number") {
+        return { id: idOrName } as NameOrId<T>;
+    } else {
+        return { name: idOrName } as NameOrId<T>;
+    }
+}
+
+let label = createLabel(5555); // label será Idlabel
+let label2 = createLabel('nome'); // label será NameLabel
+console.log(label)
+```
