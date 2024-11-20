@@ -12,10 +12,8 @@ O Typescript executa inferências de tipo baseada em fluxo, que é um tipo de ex
 que o verificador de tipo usa instruções de fluxo de controle como `if, && ||`. Esse é um recurso que
 poucas linguagens tem. (Kotlin, Flw, Ceylon e claro, TypeScript)
 
-- Symbolic execution (Execução simbólica) uma forma de análise de programa onde você usa um programa especial
-- chamado avaliador simbólico para executar seu programa da mesma forma que um runtime faria, mas sem atribuir valores
-  definidos
-- a variáveis.
+- Symbolic execution (Execução simbólica) uma forma de análise de programa onde você usa um programa especial chamado avaliador simbólico para executar seu programa da mesma forma que um runtime faria, mas sem atribuir valores
+  definidos a variáveis.
 
 A ideia de refinamento acontece muita das vezes quando realizamos uma verificação `if`.
 
