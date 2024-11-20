@@ -99,3 +99,28 @@ let Moeda = {
 // Utilize essa feature sempre que você perceber que objetos e tipos estão semanticamente
 // relacionados, com o objeto provendo um método utilitários que opera em cima do tipo.
 ```
+
+## Type Guard
+### User-Defined type guard
+Feature que permite o usuário definir seus type-guards por meio do operador `is`, uma função user-defined type guard é limitada
+a um único parâmetro, porém ela pode receber valores complexos.
+
+Veja um exemplo dessa feature em ação:
+
+
+```typescript
+function isString(a: unknown): a is string {
+  return typeof a === 'string'
+}
+
+function parseInput(input: string | number) {
+  let formattedInput: string
+  if (isString(input)) {
+    formattedInput = input.toUpperCase()
+  }
+}
+```
+
+Note que se no lugar de `a is string` utilizássemos apenas o retorno `boolean` o typescript na função `pserseInput`
+não reconheceria que input.roUppCase() seria uma `string`. Isso porque o refinamento de tipo do typescript só funciona
+em um escopo, ou seja, ele não é transferível.
