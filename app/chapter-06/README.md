@@ -153,3 +153,23 @@ let label = createLabel(5555); // label será Idlabel
 let label2 = createLabel('nome'); // label será NameLabel
 console.log(label)
 ```
+---
+
+### Types branding
+Permite que o Typescript  simule uma estrutura de tipos nominais, ver mais sobre no capítulo 6.
+
+## Distributive types
+Permite criar utilitários de tipos interessantes tais como Excluded<> e vários outros, até personalizados.
+
+## Type Assetions
+- `as` permite inferir um tipo a uma váriável (evitar usar assim que possível)
+- `<T>variavel` preferível utilizar a primeira versão com `as`, porém são equivalentes
+
+## Definite assignment Assertion
+`let userId!:string;` utilizado para garantir ao TS que essa variável estará preenchida.
+Utilizada em alguns frameworks como Angular, por exemplo, quando passamos props para componentes filhos.
+
+## Nonnull Assertions
+`document.getElementById(dialog.id!)!` sempre que percebemos que nosso código está com uma
+quantidade significativa de nonnull assetions está na hora de refatorá-lo.
+
